@@ -64,7 +64,12 @@ public class Schedule implements Serializable {
                 return newApp;
             }
         } else {
-            LocalDate temp = (LocalDate.now().getDayOfWeek().getValue() == 5) ? LocalDate.now().plusDays(3) : LocalDate.now().plusDays(1);
+            LocalDate temp;
+            if (LocalDate.now().getDayOfWeek().getValue() == 5) {
+                temp = LocalDate.now().plusDays(3);
+            } else if (LocalDate.now().getDayOfWeek().getValue() == 6) {
+                temp = LocalDate.now().plusDays(2);
+            } else temp = LocalDate.now().plusDays(1);
             Appointment newApp = new Appointment(LocalDateTime.of(temp, startWork), patient);
             appointments.add(newApp);
             return newApp;
