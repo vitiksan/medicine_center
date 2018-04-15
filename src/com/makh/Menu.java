@@ -13,9 +13,15 @@ import java.util.Scanner;
  * Created on 15.04.2018.
  */
 public class Menu {
-    private static ArrayList<Doctor> doctors = Serializator.getData("db");
+    private static ArrayList<Doctor> doctors;
     private static int choose = -1;
-    private static Scanner in = new Scanner(System.in);
+    private static Scanner in;
+
+    static {
+        in = new Scanner(System.in);
+        doctors = Serializator.getData("db");
+        if (doctors == null) doctors = new ArrayList<>();
+    }
 
     public static void start() {
         do {

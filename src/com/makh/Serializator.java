@@ -38,9 +38,11 @@ public class Serializator {
         } catch (ClassNotFoundException e) {
             System.out.println(e);
         } catch (FileNotFoundException e) {
-            System.out.println(e);
+            return null;
         } catch (IOException e) {
             System.out.println(e);
+        } catch (Exception e){
+            return null;
         }
         return temp;
     }
