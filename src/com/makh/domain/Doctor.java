@@ -1,15 +1,19 @@
 package com.makh.domain;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * Created on 15.04.2018.
  */
 public class Doctor extends Human {
     private String speciality;
+    private Schedule schedule;
 
-    public Doctor(String name, String surname, LocalDate birthday, String speciality) {
+    public Doctor(String name, String surname, LocalDate birthday, String speciality,
+                  LocalTime startWork, LocalTime finishWork, int numberOfCabinet) {
         super(name, surname, birthday);
+        this.schedule = new Schedule(startWork, finishWork, numberOfCabinet);
         this.speciality = speciality;
     }
 
@@ -19,6 +23,10 @@ public class Doctor extends Human {
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
+    }
+
+    public String addAppointment(Patient patient){
+        return schedule.addAppointment(patient).toString();
     }
 
     @Override
