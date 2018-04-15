@@ -1,11 +1,12 @@
 package com.makh.domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  * Created on 15.04.2018.
  */
-public class Appointment {
+public class Appointment implements Serializable{
     private LocalDateTime time;
     private Patient patient;
 

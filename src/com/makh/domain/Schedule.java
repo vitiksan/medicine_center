@@ -1,11 +1,12 @@
 package com.makh.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Schedule {
+public class Schedule implements Serializable {
     private LocalTime startWork;
     private LocalTime finishWork;
     private int numberOfCabinet;
@@ -81,7 +82,7 @@ public class Schedule {
     @Override
     public String toString() {
         return "Графік роботи по буднях" +
-                "\n з " + startWork.toString() +
+                "\nз " + startWork.toString() +
                 " до " + finishWork.toString() +
                 "\nКабінет - " + numberOfCabinet + "\n";
     }

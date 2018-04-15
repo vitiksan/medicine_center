@@ -1,19 +1,17 @@
 package com.makh.domain;
 
-import java.time.LocalDate;
+import java.io.Serializable;
 
-public abstract class Human {
+public abstract class Human implements Serializable {
     private static int _id = 0;
     private int id;
     private String name;
     private String surname;
-    private LocalDate birthday;
 
-    public Human(String name, String surname, LocalDate birthday) {
+    public Human(String name, String surname) {
         setId();
         this.name = name;
         this.surname = surname;
-        this.birthday = birthday;
     }
 
     public static int get_id() {
@@ -46,13 +44,5 @@ public abstract class Human {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
     }
 }
