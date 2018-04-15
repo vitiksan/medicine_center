@@ -6,23 +6,12 @@ import java.time.LocalDateTime;
  * Created on 15.04.2018.
  */
 public class Appointment {
-    private static int _id = 0;
-    private int id;
     private LocalDateTime time;
     private Patient patient;
 
-    public Appointment(LocalDateTime time, Patient patient) {
-        setId();
+    public Appointment(LocalDateTime time, Patient patient) {;
         this.time = time;
         this.patient = patient;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    private void setId() {
-        this.id = ++_id;
     }
 
     public LocalDateTime getTime() {
@@ -39,5 +28,11 @@ public class Appointment {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    @Override
+    public String toString() {
+        return "Час запису - " + time.toString() +
+                "\nПацієнт:\n" + patient.toString();
     }
 }

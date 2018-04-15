@@ -9,11 +9,12 @@ import java.util.Scanner;
  * Created on 15.04.2018.
  */
 public class Menu {
-    ArrayList<Doctor> doctors = new ArrayList<>();
+    private static ArrayList<Doctor> doctors = (Serializator.getData("db").equals(null)) ? new ArrayList<>() :
+            Serializator.getData("db");
     private static int choose = -1;
 
     public static void start() {
-        System.out.println("Welcome to medicine center");
+        System.out.println("Вітаємо у медичному центрі\n");
         do {
             information();
             choose = chooses();
@@ -31,15 +32,8 @@ public class Menu {
                 break;
             case 4:
                 break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
-                break;
             case 0:
+                Serializator.saveData("db", doctors);
                 System.exit(0);
                 break;
             default:
@@ -53,13 +47,13 @@ public class Menu {
         int temp = -1;
         do {
             try {
-                System.out.print("Please enter your choices: ");
+                System.out.print("Зробіть вибір: ");
                 temp = Integer.parseInt(in.next());
-                if (temp > 8) {
+                if (temp > 4) {
                     throw new Exception();
                 }
             } catch (Exception e) {
-                System.out.println("Your choices not defined");
+                System.out.println("Значення не введено або введено невірно");
                 temp = -1;
             }
         } while (temp < 0);
@@ -67,15 +61,11 @@ public class Menu {
     }
 
     private static void information() {
-        System.out.println("You can:");
-        System.out.println("1-Create new Manager");
-        System.out.println("2-Create new Customer");
-        System.out.println("3-Crete new Account for Customer");
-        System.out.println("4-Read all Manager");
-        System.out.println("5-Read all Customer");
-        System.out.println("6-Delete Account by Customer");
-        System.out.println("7-Delete Customer");
-        System.out.println("8-Delete Manager");
-        System.out.println("0-Exit");
+        System.out.println("Ви можете:");
+        System.out.println("1-Додати нового лікаря");
+        System.out.println("2-Вивести всіх лікарів");
+        System.out.println("3-Зареєструватися на прийом до лікаря");
+        System.out.println("4-Вивести всі записи до лікаря");
+        System.out.println("0-Вийти");
     }
 }

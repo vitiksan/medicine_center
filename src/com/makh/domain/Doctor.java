@@ -25,16 +25,17 @@ public class Doctor extends Human {
         this.speciality = speciality;
     }
 
-    public String addAppointment(Patient patient){
-        return schedule.addAppointment(patient).toString();
+    public String addAppointment(Patient patient) {
+        Appointment appointment = schedule.addAppointment(patient);
+        String temp = appointment.toString() + "\nЛікар:\n" + this.toString();
+        return temp;
     }
 
     @Override
     public String toString() {
-        return "Id=" + getId() +
-                "\nName= " + getName() +
-                "\nSurname='" + getSurname() +
-                "\nBirthday=" + getBirthday() +
-                "\nSpeciality=" + speciality + "\n";
+        return "Id лікаря - " + getId() +
+                "\nПІБ - " + getName() + getSurname() +
+                "\nСпеціальність - " + speciality + "\n" +
+                schedule.toString();
     }
 }

@@ -43,6 +43,7 @@ public class Schedule {
     }
 
     public ArrayList<Appointment> getAppointments() {
+        clearCompletedAppointments();
         return appointments;
     }
 
@@ -75,5 +76,13 @@ public class Schedule {
                 appointments.remove(each);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Графік роботи по буднях" +
+                "\n з " + startWork.toString() +
+                " до " + finishWork.toString() +
+                "\nКабінет - " + numberOfCabinet + "\n";
     }
 }

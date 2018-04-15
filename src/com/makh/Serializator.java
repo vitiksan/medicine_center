@@ -1,9 +1,13 @@
 package com.makh;
 
+import com.makh.domain.Doctor;
+import com.makh.domain.Human;
+
 import java.io.*;
+import java.util.ArrayList;
 
 public class Serializator {
-    public static void saveData(String path, Object obj) {
+    public static void saveData(String path, ArrayList<Doctor> obj) {
         try {
             FileOutputStream someFile = new FileOutputStream(path + ".ser");
             ObjectOutputStream someObj = new ObjectOutputStream(someFile);
@@ -18,13 +22,16 @@ public class Serializator {
         }
     }
 
-    public static Object getData(String path) {
-        Object temp = null;
+    public static ArrayList<Doctor> getData(String path) {
+        ArrayList<Doctor> temp = null;
         try {
             FileInputStream someFile = new FileInputStream(path + ".ser");
             ObjectInputStream someObj = new ObjectInputStream(someFile);
 
-            temp = someObj.readObject();
+            temp = (ArrayList<Doctor>) someObj.readObject();
+            for (Doctor doctor : temp) {
+                if (doctor.getId() > Human.get_id()) Human.set_id(doctor.getId());
+            }
             someFile.close();
             someObj.close();
 

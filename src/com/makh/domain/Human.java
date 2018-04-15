@@ -16,6 +16,14 @@ public abstract class Human {
         this.birthday = birthday;
     }
 
+    public static int get_id() {
+        return _id;
+    }
+
+    public static void set_id(int _id) {
+        Human._id = _id;
+    }
+
     public int getId() {
         return id;
     }
@@ -46,13 +54,5 @@ public abstract class Human {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
-    }
-
-    @Override
-    public String toString() {
-        return "Id=" + id +
-                "\nName= " + name +
-                "\nSurname='" + surname +
-                "\nBirthday=" + birthday + "\n";
     }
 }

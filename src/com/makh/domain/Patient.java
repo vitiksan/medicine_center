@@ -23,10 +23,9 @@ public class Patient extends Human {
 
     @Override
     public String toString() {
-        return "Id=" + getId() +
-                "\nName= " + getName() +
-                "\nSurname='" + getSurname() +
-                "\nBirthday=" + getBirthday() +
-                "\nPlace of residence=" + placeOfResidence + "\n";
+        return "Id пацієнта - " + getId() +
+                "\nПІБ - " + getName() + " " + getSurname() +
+                "\nДата народження=" + getBirthday().toString() +
+                "\nМісце проживання - " + placeOfResidence + "\n";
     }
 }
