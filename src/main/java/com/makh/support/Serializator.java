@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Serializator {
-    private final static String directory = "./src/main/resources/";
+    private final static String directory = "src/main/resources/";
 
     public static void saveData(String path, ArrayList<Doctor> obj) {
         try {
