@@ -8,12 +8,12 @@ import java.time.LocalDate;
  */
 public class Patient extends Human implements Serializable {
     private LocalDate birthday;
-    private String placeOfResidence;
+    private String address;
 
-    public Patient(String name, String surname, LocalDate birthday, String placeOfResidence) {
+    public Patient(String name, String surname, LocalDate birthday, String address) {
         super(name, surname);
         this.birthday = birthday;
-        this.placeOfResidence = placeOfResidence;
+        this.address = address;
     }
 
     public LocalDate getBirthday() {
@@ -24,12 +24,12 @@ public class Patient extends Human implements Serializable {
         this.birthday = birthday;
     }
 
-    public String getPlaceOfResidence() {
-        return placeOfResidence;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPlaceOfResidence(String placeOfResidence) {
-        this.placeOfResidence = placeOfResidence;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
@@ -37,6 +37,6 @@ public class Patient extends Human implements Serializable {
         return "Id пацієнта - " + getId() +
                 "\nПІБ - " + getName() + " " + getSurname() +
                 "\nДата народження - " + birthday.toString() +
-                "\nМісце проживання - " + placeOfResidence + "\n";
+                "\nМісце проживання - " + address + "\n";
     }
 }
