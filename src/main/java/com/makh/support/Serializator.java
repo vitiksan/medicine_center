@@ -1,4 +1,4 @@
-package com.makh;
+package com.makh.support;
 
 import com.makh.domain.Doctor;
 import com.makh.domain.Human;
@@ -7,9 +7,11 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Serializator {
+    private final static String directory = "./src/main/resources/";
+
     public static void saveData(String path, ArrayList<Doctor> obj) {
         try {
-            FileOutputStream someFile = new FileOutputStream(path + ".ser");
+            FileOutputStream someFile = new FileOutputStream(directory + path + ".ser");
             ObjectOutputStream someObj = new ObjectOutputStream(someFile);
             someObj.writeObject(obj);
             someFile.close();
@@ -25,7 +27,7 @@ public class Serializator {
     public static ArrayList<Doctor> getData(String path) {
         ArrayList<Doctor> temp = null;
         try {
-            FileInputStream someFile = new FileInputStream(path + ".ser");
+            FileInputStream someFile = new FileInputStream(directory + path + ".ser");
             ObjectInputStream someObj = new ObjectInputStream(someFile);
 
             temp = (ArrayList<Doctor>) someObj.readObject();
@@ -41,7 +43,7 @@ public class Serializator {
             return null;
         } catch (IOException e) {
             System.out.println(e);
-        } catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
         return temp;

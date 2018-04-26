@@ -1,4 +1,4 @@
-package com.makh;
+package com.makh.support;
 
 import com.makh.domain.Appointment;
 import com.makh.domain.Doctor;
@@ -24,6 +24,7 @@ public class Menu {
     }
 
     public static void start() {
+        System.out.println("Вітаємо у медичному центрі\n");
         do {
             information();
             choose = chooses();
